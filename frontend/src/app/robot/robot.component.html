@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col"><h2>Robots</h2></div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-8">
+    <div class="alert alert-success" role="alert">
+      <button type="button" class="btn btn-success" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">GET</button>
+      <br>
+      <div class="collapse" id="collapseExample">
+        <label for="basic-url">Add Robot name</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">NAME</span>
+          <input type="text"  [(ngModel)]="newRobot.name" placeholder="Name" name="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <button type="button" (click)="createRobot(newRobot)">Create Robot</button>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info" role="alert">
+      <button type="button" class="btn btn-primary">Primary</button>
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <button type="button" class="btn btn-danger">Danger</button>
+    </div>
+  </div>
+</div>
+
+
