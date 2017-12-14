@@ -32,7 +32,18 @@ export class RobotComponent implements OnInit {
       });
   }
 
-  deleteBike(robot: Robot): void {
+
+  findRobot(id: number): void {
+
+    this.robotService.getRobot(id)
+      .then(robot => {
+        this.robots.push(robot);
+        this.selectedRobot = robot;
+      });
+  }
+
+
+  deleteRobot(robot: Robot): void {
     this.robotService
       .deleteRobot(robot)
       .then(() => {

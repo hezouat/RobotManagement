@@ -5,22 +5,43 @@
 <div class="row">
   <div class="col-8">
     <div class="alert alert-success" role="alert">
-      <button type="button" class="btn btn-success" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">GET</button>
+      <button type="button" class="btn btn-success" data-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapseExample">POST</button>
+       <b>/robot</b> Add new robot
       <br>
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="collapse1">
         <label for="basic-url">Add Robot name</label>
         <div class="input-group">
-          <span class="input-group-addon" id="basic-addon3">NAME</span>
+          <span class="input-group-addon" id="basic-addon1">NAME</span>
           <input type="text"  [(ngModel)]="newRobot.name" placeholder="Name" name="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
           <button type="button" (click)="createRobot(newRobot)">Create Robot</button>
         </div>
       </div>
     </div>
     <div class="alert alert-info" role="alert">
-      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-primary" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapseExample">GET</button>
+      <b>/robot/robotId</b> Find robot by ID
+      <br>
+      <div class="collapse" id="collapse2">
+        <label for="basic-url">Find Robot by ID</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">RobotId</span>
+          <input type="text"  [(ngModel)]="newRobot.id" placeholder="ID" name="id" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <button type="button" (click)="findRobot(newRobot.id)">Find</button>
+        </div>
+      </div>
     </div>
     <div class="alert alert-danger" role="alert">
-      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-danger" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">DELETE</button>
+      <b>/robot/robotId</b> Delete robot
+      <br>
+      <div class="collapse" id="collapse3">
+        <label for="basic-url">Delete Robot ID</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">RobotId</span>
+          <input type="text"  [(ngModel)]="newRobot.id" placeholder="ID" name="id" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <button type="button" (click)="deleteRobot(newRobot)">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

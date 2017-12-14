@@ -13,7 +13,7 @@ public interface IRobotMapper {
     @Insert("insert into robots(name) values(#{name})")
     @SelectKey(statement="call identity()", keyProperty="id",
       before=false, resultType=Long.class)
-    void createRobot(Robot newRobot);
+    int createRobot(Robot newRobot);
 
     @Select("select id, name  from robots WHERE id=#{id}")
     Robot findRobotById(Long id);

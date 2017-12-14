@@ -17,10 +17,9 @@ import javax.sql.DataSource;
 @MapperScan("com.robot.dao.mapper")
 public class DBConfig {
 
-
+ /*
     @Bean
     public DataSource dataSource() {
-
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(org.h2.Driver.class);
@@ -29,6 +28,7 @@ public class DBConfig {
         dataSource.setPassword("");
         return dataSource;
     }
+
 
 
     @Bean
@@ -42,4 +42,5 @@ public class DBConfig {
         sessionFactory.setDataSource(dataSource());
         return sessionFactory;
     }
+    */
 }

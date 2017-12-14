@@ -1,18 +1,19 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'v' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@3.10.10
 3 info using node@v7.3.0
-4 verbose stack Error: Invalid package.json
-4 verbose stack     at /usr/local/lib/node_modules/npm/lib/view.js:84:30
-4 verbose stack     at ReadFileContext.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:90:21)
-4 verbose stack     at ReadFileContext.callback (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
-4 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:335:13)
+4 verbose stack Error: ENOENT: no such file or directory, open '/Users/hezouatz/developments/sources/RobotManagement/package.json'
 5 verbose cwd /Users/hezouatz/developments/sources/RobotManagement
 6 error Darwin 15.6.0
-7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "v"
+7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 8 error node v7.3.0
 9 error npm  v3.10.10
-10 error Invalid package.json
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+10 error path /Users/hezouatz/developments/sources/RobotManagement/package.json
+11 error code ENOENT
+12 error errno -2
+13 error syscall open
+14 error enoent ENOENT: no such file or directory, open '/Users/hezouatz/developments/sources/RobotManagement/package.json'
+15 error enoent ENOENT: no such file or directory, open '/Users/hezouatz/developments/sources/RobotManagement/package.json'
+15 error enoent This is most likely not a problem with npm itself
+15 error enoent and is related to npm not being able to find a file.
+16 verbose exit [ -2, true ]

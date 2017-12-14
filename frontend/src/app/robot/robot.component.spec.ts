@@ -5,6 +5,7 @@ describe('RobotComponent', () => {
   let component: RobotComponent;
   let fixture: ComponentFixture<RobotComponent>;
 
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RobotComponent ]
