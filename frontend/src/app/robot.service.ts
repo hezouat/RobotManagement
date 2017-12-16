@@ -41,7 +41,7 @@ export class RobotService {
 
   deleteRobot(robot: Robot): Promise<void> {
     const url = `${this.robotsUrl}/deleteRobot/${robot.id}`;
-    return this.http.get(url, {headers: this.headers})
+    return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
