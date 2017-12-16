@@ -10,7 +10,6 @@ import { RobotService } from "../robot.service";
 })
 export class RobotComponent implements OnInit {
 
-
   robots: Robot[];
   newRobot: Robot;
   selectedRobot: Robot;

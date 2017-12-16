@@ -35,6 +35,7 @@ public class RobotController {
         return robotService.findRobotById(robotId);
     }
 
+
     @RequestMapping(value = "/createRobot", method = RequestMethod.POST)
     public ResponseEntity createRobot(@RequestBody Robot robot) {
          robotService.createRobot(robot);
@@ -43,7 +44,7 @@ public class RobotController {
     }
 
 
-    @RequestMapping(value = "/deleteRobot/{robotId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteRobot/{robotId}", method = RequestMethod.DELETE)
     public void deleteRobot(@PathVariable("robotId") Long robotId) {
         robotService.deleteRobot(robotId);
     }

@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,7 +16,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 /**
  * Created by hezouatz on 08/12/17.
  */
-
+@Configuration
 @EnableWebSecurity
 public class RobotSecurity  extends WebSecurityConfigurerAdapter {
     Logger logger = LoggerFactory.getLogger(RobotSecurity.class);
@@ -27,7 +28,7 @@ public class RobotSecurity  extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/").permitAll();
-       // http.authorizeRequests().antMatchers("/**").hasRole("ADMIN").and().formLogin();
+        http.authorizeRequests().antMatchers("/**").hasRole("ADMIN").and().formLogin();
 
         // add this line to use H2 web console
         http.headers().frameOptions().disable();
@@ -38,7 +39,11 @@ public class RobotSecurity  extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("admin").password("{noop}admin1").roles("ADMIN");
+                .withUser("admin").password("{noop}admin1").roles("ADMIN")
+                .and()
+                .withUser("robotA").password("{noop}test1").roles("ROBOTA")
+                .and()
+                .withUser("robotB").password("{noop}test2").roles("ROBOTB");
     }
 
 }
