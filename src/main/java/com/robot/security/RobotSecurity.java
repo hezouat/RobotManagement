@@ -6,10 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
@@ -27,9 +29,15 @@ public class RobotSecurity  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/").permitAll();
-        http.authorizeRequests().antMatchers("/**").hasRole("ADMIN").and().formLogin();
-
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/rest/**").authenticated()
+                .antMatchers(HttpMethod.PUT, "/rest/**").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/rest/**").authenticated()
+                .anyRequest().permitAll()
+        .and()
+                .httpBasic().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        
         // add this line to use H2 web console
         http.headers().frameOptions().disable();
     }
