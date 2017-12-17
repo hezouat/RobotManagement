@@ -37,7 +37,7 @@ public class RobotController {
 
 
     @RequestMapping(value = "/createRobot", method = RequestMethod.POST)
-    public ResponseEntity createRobot(@RequestBody Robot robot) {
+    public synchronized ResponseEntity createRobot(@RequestBody Robot robot) {
          robotService.createRobot(robot);
         return new ResponseEntity(HttpStatus.ACCEPTED);
 

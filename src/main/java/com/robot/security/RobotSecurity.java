@@ -37,7 +37,7 @@ public class RobotSecurity  extends WebSecurityConfigurerAdapter {
         .and()
                 .httpBasic().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        
+
         // add this line to use H2 web console
         http.headers().frameOptions().disable();
     }
