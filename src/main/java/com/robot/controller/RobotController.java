@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,18 +26,21 @@ public class RobotController {
 
 
     @RequestMapping(value = "/allRobots", method = RequestMethod.GET,produces = "application/json")
+    @PreAuthorize("hasRole('USERA') and hasRole('USERB')")
     public List<Robot> getAllRobots() {
         LOG.info("List robots " + robotService.findAll());
         return robotService.findAll();
     }
 
     @RequestMapping(value = "/getRobot/{robotId}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('USERA') and hasRole('USERB')")
     public Robot getRobot(@PathVariable("robotId") Long robotId) {
         return robotService.findRobotById(robotId);
     }
 
 
     @RequestMapping(value = "/createRobot", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('USERB')")
     public synchronized ResponseEntity createRobot(@RequestBody Robot robot) {
          robotService.createRobot(robot);
         return new ResponseEntity(HttpStatus.ACCEPTED);
@@ -45,6 +49,7 @@ public class RobotController {
 
 
     @RequestMapping(value = "/deleteRobot/{robotId}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasRole('USERB')")
     public void deleteRobot(@PathVariable("robotId") Long robotId) {
         robotService.deleteRobot(robotId);
     }
